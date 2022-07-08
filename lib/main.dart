@@ -35,7 +35,7 @@ class MyHomeScreen extends StatelessWidget {
         children: [
           Container(
               height: size.height * .45,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0xFFF5CEB8),
                 image: DecorationImage(
                     alignment: Alignment.centerLeft,
@@ -53,7 +53,7 @@ class MyHomeScreen extends StatelessWidget {
                     alignment: Alignment.center,
                     height: 52,
                     width: 52,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0xFFF2BEA1),
                       shape: BoxShape.circle,
                     ),
@@ -66,8 +66,9 @@ class MyHomeScreen extends StatelessWidget {
                         .displaySmall
                         ?.copyWith(fontWeight: FontWeight.w900, fontSize: 36)),
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 20),
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+                  margin: const EdgeInsets.symmetric(vertical: 20),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(29)),
@@ -84,7 +85,7 @@ class MyHomeScreen extends StatelessWidget {
                     childAspectRatio: .85,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
-                    children: [
+                    children: const [
                       CategoryCard(
                           title: "Diat Recomendation",
                           SvgSrc: "assets/icons/Hamburger.svg"),
@@ -137,11 +138,11 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(13),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
                 offset: Offset(0, 17),
                 blurRadius: 17,
@@ -150,9 +151,9 @@ class CategoryCard extends StatelessWidget {
           ]),
       child: Column(
         children: [
-          Spacer(),
+          const Spacer(),
           SvgPicture.asset(SvgSrc),
-          Spacer(),
+          const Spacer(),
           Text(title,
               style: Theme.of(context)
                   .textTheme
