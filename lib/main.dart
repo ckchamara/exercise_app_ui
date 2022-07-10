@@ -1,6 +1,9 @@
+import 'package:exercise_app_ui/screens/details_screen.dart';
+import 'package:exercise_app_ui/widgets/bottom_nav_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'constants.dart';
+import 'widgets/catagory_card.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,6 +34,34 @@ class MyHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+          height: 70,
+          color: Colors.white,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              BottomNavItem(
+                asset: 'assets/icons/calendar.svg',
+                text: 'Today',
+                onTap: () {},
+                isActive: true,
+              ),
+              BottomNavItem(
+                asset: 'assets/icons/gym.svg',
+                text: 'Today',
+                onTap: () {},
+              ),
+              BottomNavItem(
+                asset: 'assets/icons/Settings.svg',
+                text: 'Settings',
+                onTap: () {},
+              )
+            ],
+          ),
+        ),
+      ),
       body: Stack(
         children: [
           Container(
@@ -85,80 +116,55 @@ class MyHomeScreen extends StatelessWidget {
                     childAspectRatio: .85,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
-                    children: const [
+                    children: [
                       CategoryCard(
-                          title: "Diat Recomendation",
-                          SvgSrc: "assets/icons/Hamburger.svg"),
-                      CategoryCard(
-                          title: "Mindfullness Recomendation",
-                          SvgSrc: "assets/icons/Meditation.svg"),
-                      CategoryCard(
-                        title: "Excrecises Recomendation",
-                        SvgSrc: "assets/icons/Excrecises.svg",
+                        title: "Diet Recommendation",
+                        SvgSrc: "assets/icons/Hamburger.svg",
+                        onTap: () {},
                       ),
                       CategoryCard(
-                          title: "Yoga Recomendation",
-                          SvgSrc: "assets/icons/yoga.svg"),
+                          title: "Mindfulness Recommendation",
+                          SvgSrc: "assets/icons/Meditation.svg",
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return DetailsScreen();
+                            }));
+                          }),
+                      CategoryCard(
+                          title: "Exercises Recommendation",
+                          SvgSrc: "assets/icons/Excrecises.svg",
+                          onTap: () {}),
+                      CategoryCard(
+                          title: "Yoga Recommendation",
+                          SvgSrc: "assets/icons/yoga.svg",
+                          onTap: () {}),
+                      CategoryCard(
+                          title: "Yoga Recommendation",
+                          SvgSrc: "assets/icons/yoga.svg",
+                          onTap: () {}),
                       CategoryCard(
                           title: "Yoga Recomendation",
-                          SvgSrc: "assets/icons/yoga.svg"),
+                          SvgSrc: "assets/icons/yoga.svg",
+                          onTap: () {}),
                       CategoryCard(
                           title: "Yoga Recomendation",
-                          SvgSrc: "assets/icons/yoga.svg"),
+                          SvgSrc: "assets/icons/yoga.svg",
+                          onTap: () {}),
                       CategoryCard(
                           title: "Yoga Recomendation",
-                          SvgSrc: "assets/icons/yoga.svg"),
+                          SvgSrc: "assets/icons/yoga.svg",
+                          onTap: () {}),
                       CategoryCard(
                           title: "Yoga Recomendation",
-                          SvgSrc: "assets/icons/yoga.svg"),
-                      CategoryCard(
-                          title: "Yoga Recomendation",
-                          SvgSrc: "assets/icons/yoga.svg"),
+                          SvgSrc: "assets/icons/yoga.svg",
+                          onTap: () {}),
                     ],
                   ),
                 )
               ],
             ),
           ))
-        ],
-      ),
-    );
-  }
-}
-
-class CategoryCard extends StatelessWidget {
-  const CategoryCard({
-    Key? key,
-    required this.SvgSrc,
-    required this.title,
-  }) : super(key: key);
-
-  final String SvgSrc, title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(13),
-          boxShadow: const [
-            BoxShadow(
-                offset: Offset(0, 17),
-                blurRadius: 17,
-                spreadRadius: -15,
-                color: kShadowColor)
-          ]),
-      child: Column(
-        children: [
-          const Spacer(),
-          SvgPicture.asset(SvgSrc),
-          const Spacer(),
-          Text(title,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium
-                  ?.copyWith(fontSize: 15))
         ],
       ),
     );
