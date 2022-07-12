@@ -1,5 +1,5 @@
 import 'package:exercise_app_ui/screens/details_screen.dart';
-import 'package:exercise_app_ui/widgets/bottom_nav_item.dart';
+import 'package:exercise_app_ui/widgets/bottom_navbar.dart';
 import 'package:exercise_app_ui/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: kBackgroundColor,
           textTheme:
               Theme.of(context).textTheme.apply(displayColor: kTextColor)),
-      home: const MyHomeScreen(),
+      home: MyHomeScreen(),
     );
   }
 }
@@ -35,34 +35,7 @@ class MyHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      bottomNavigationBar: SafeArea(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-          height: 70,
-          color: Colors.white,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              BottomNavItem(
-                asset: 'assets/icons/calendar.svg',
-                text: 'Today',
-                onTap: () {},
-                isActive: true,
-              ),
-              BottomNavItem(
-                asset: 'assets/icons/gym.svg',
-                text: 'Today',
-                onTap: () {},
-              ),
-              BottomNavItem(
-                asset: 'assets/icons/Settings.svg',
-                text: 'Settings',
-                onTap: () {},
-              )
-            ],
-          ),
-        ),
-      ),
+      bottomNavigationBar: BottomNavbar(),
       body: Stack(
         children: [
           Container(
@@ -158,4 +131,5 @@ class MyHomeScreen extends StatelessWidget {
     );
   }
 }
+
 
